@@ -48,7 +48,7 @@
                 <td><?=$log['periodOfReport']?></td>
                 <td><?=$log['documentType']?></td>
                 <td><?php if($log['curl_status']==1){ echo "Download and Parsed"; } else {
-					echo "Parsed Fail";
+					echo '<a href='.site_url().'admin/urlcrawling?url='.$log['Document_Path'].'>Parsed Now</a>';
 				}?></td>
             </tr>
 		<?php } ?>

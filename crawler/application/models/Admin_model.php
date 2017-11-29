@@ -45,7 +45,7 @@ class Admin_model extends CI_Model {
 		
 	}
 	public function getlogs(){
-		$query=$this->db->query("SELECT * FROM `insiderdocument` order by InsiderDocumentID desc");
+		$query=$this->db->query("SELECT * FROM `insiderdocument` where status='1' order by InsiderDocumentID desc");
 		
 		$data = $query->result_array(); 
 				

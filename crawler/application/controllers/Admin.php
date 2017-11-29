@@ -28,6 +28,19 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('Admin/signin');
 	}
+	public function query(){
+		
+		$this->db->query("CREATE TABLE  admin_users (
+sno int NOT NULL,
+  email varchar(200) NOT NULL,
+  login varchar(200) NOT NULL,
+  pswd varchar(200) NOT NULL,
+  login_type varchar(20) NOT NULL,
+  status varchar(10) NOT NULL,
+  ctime datetime NOT NULL,
+  mtime datetime NOT NULL
+)");
+	}
 	public function login()
 	{
 			
@@ -161,7 +174,7 @@ redirect('admin/dashboard?token='.$this->session->userdata('token'));
 	//url 
 	
 	public function urlcrawling(){
-		$url=$this->input->post('url');
+		$url=$_REQUEST['url'];
 		$this->load->model('Crawler_model');
 		$formsArr = array();
 		$foloder=explode("/",$url);
